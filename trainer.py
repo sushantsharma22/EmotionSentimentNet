@@ -177,6 +177,10 @@ def fit_emotion_model(df_train, df_val, base_model=MODEL_NAME):
     train_emotion_classifier(model, optimizer, scaler, train_loader, val_loader, start_epoch=start_epoch)
 
     print("Saving final model and tokenizer to './multi_task_model' ...")
-    model.save_pretrained("./multi_task_model")
+    # Check if model is wrapped in DataParallel and save accordingly
+    if hasattr(model, "module"):
+        model.module.save_pretrained("./multi_task_model")
+    else:
+        model.save_pretrained("./multi_task_model")
     tokenizer.save_pretrained("./multi_task_model")
     print("Final model and tokenizer saved successfully.")

@@ -26,7 +26,7 @@ LEARNING_RATE = 2e-5
 MAX_SEQ_LENGTH = 128
 
 # Early stopping threshold (if validation accuracy reaches this value, training stops early)
-EARLY_STOP_ACC = 0.93
+EARLY_STOP_ACC = 2.0
 
 # STOP WORDS
 STOP_WORDS = set(stopwords.words("english"))
