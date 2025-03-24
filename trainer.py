@@ -57,14 +57,14 @@ def create_data_loader(df, tokenizer, batch_size=BATCH_SIZE, shuffle=False):
         dataset,
         batch_size=batch_size,
         shuffle=shuffle,
-        num_workers=8,  # Reduce to 0 if you face issues.
+        num_workers=8,  
         pin_memory=True
     )
 
 def train_emotion_classifier(model, optimizer, scaler, train_loader, val_loader, start_epoch=0):
     classification_criterion = nn.CrossEntropyLoss()
     regression_criterion = nn.MSELoss()
-    history = []  # To record metrics for each epoch
+    history = []
 
     for epoch in range(start_epoch, EPOCHS):
         model.train()
