@@ -3,3 +3,5 @@ training.log
 __pycache__/
 checkpoint_latest.pt
 multi_task_model/
+*.pyc
+__pycache__/
